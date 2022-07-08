@@ -1,0 +1,58 @@
+export const terminalLines = [
+    {
+      path: '~/Jon/Skills',
+      input: 'ls',
+      results: [
+        'React',
+        'TypeScript',
+        'Bazel',
+        'Go',
+        'JavaScript',
+        'GraphQL',
+        'gRPC',
+        'Cypress',
+        'Jest',
+        'Node',
+        'HTML',
+        'CSS',
+        'SCSS',
+        'Web-Components',
+        'AWS',
+        'Ruby',
+      ],
+    },
+    {
+      path: '~/Jon/Skills',
+      input: 'cd ..',
+      results: [],
+    },
+    {
+      path: '~/Jon',
+      input: 'ls',
+      results: ['Skills', 'My-Work'],
+    },
+    {
+      path: '~/Jon',
+      input: 'cd My-Work',
+      results: [],
+    },
+    {
+      path: '~/Jon/My-Work',
+      input: 'ls',
+      results: [
+        'optimize_health',
+        'Inovalon',
+        'RBI',
+        'Burger_King',
+        'Popeyes',
+        'Tim_Hortons',
+        'Go',
+        'CareCloud',
+      ],
+    },
+    {
+      path: '~/Jon/My-Work',
+      input: 'mkdir ??',
+      results: [],
+    },
+  ];
