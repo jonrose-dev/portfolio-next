@@ -134,6 +134,13 @@ const Home: NextPage = () => {
               width={100}
             />
           </a>
+          <a
+            rel="me"
+            href="https://twit.social/@jonrose"
+            className={`bg-black h-[100px] w-[100px] p-4 ${className.imageLink}`}
+          >
+            <Image src="/images/mastodon.webp" alt="Mastodon Icon" height={100} width={100} />
+          </a>
         </div>
         <Image
           src="/images/bye.webp"
