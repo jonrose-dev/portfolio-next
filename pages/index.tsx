@@ -48,7 +48,7 @@ const Home: NextPage = () => {
         />
         <Text as="h2" size="lg" className="text-white w-[70vw] text-center justify-self-center">
           My name is Jon Rose and I am passionate about writing performant and elegant code. Whether
-          it&apos;s for a static website, highly interactive web apps, or even an iOS app, I love
+          it&apos;s for a static website, highly interactive web-app, or high performance micro-service, I love
           working on it all.
         </Text>
       </div>
@@ -56,18 +56,11 @@ const Home: NextPage = () => {
         <Text as="h2" size="xl" className="text-white text-center justify-self-center">
           What I&apos;m Up To
         </Text>
-        <Image
-          className="bg-white w-fit"
-          src="https://www.optimize.health/hubfs/optimize-health-logo.png"
-          alt="Optimize Health Logo"
-          width={500}
-          height={115}
-        />
-        <Text as="h3" size="lg" className="text-white">
-          Engineering Manager
+        <Text as="h3" size="lg" className="text-white text-center">
+          👷
         </Text>
-        <Text className="text-white" size="md">
-          Building the future of optimize.health&apos;s Remote Patient Monitoring services.
+        <Text className="text-white text-center" size="md">
+          I&apos;m working on something new and I look forward to sharing more soon!
         </Text>
         <div className="h-20 relative flex justify-center">
           <ArrowDown
@@ -133,13 +126,6 @@ const Home: NextPage = () => {
               height={100}
               width={100}
             />
-          </a>
-          <a
-            rel="me"
-            href="https://twit.social/@jonrose"
-            className={`bg-black h-[100px] w-[100px] p-4 ${className.imageLink}`}
-          >
-            <Image src="/images/mastodon.webp" alt="Mastodon Icon" height={100} width={100} />
           </a>
         </div>
         <Image
