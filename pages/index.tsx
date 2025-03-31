@@ -52,16 +52,21 @@ const Home: NextPage = () => {
           working on it all.
         </Text>
       </div>
-      <div className="h-fit bg-[#103169] grid grid-rows-[auto,1fr] w-full pb-12 px-6 gap-y-8  py-8 ">
-        <Text as="h2" size="xl" className="text-white text-center justify-self-center">
-          What I&apos;m Up To
+      <div className="h-fit bg-[rgb(248,248,250)] text-[#001c3d] grid grid-rows-[auto,1fr] w-full pb-12 px-6 gap-y-8  py-8 ">
+        <Image
+          src="https://getcenter.com/wp-content/uploads/2023/03/logo.png"
+          height={500}
+          width={500}
+          alt="Logo for Center"
+          className="justify-self-center text-center"
+        />
+        <Text as="h2" size="xl" className="w-[70vw] text-center justify-self-center">
+          Sr. Director of Engineering
         </Text>
-        <Text as="h3" size="lg" className="text-white text-center">
-          👷
+        <Text as="h3" size='lg' className='justify-self-center text-center w-[80vw]'>
+          As the Senior Director of Engineering at Center, I lead a team of over 20 engineers, ensuring the development of scalable, maintainable, and resilient systems. I collaborate closely with the product and design teams to define and refine product features, translating business needs into technical solutions. My role involves guiding the engineering team in designing and implementing these features with a strong emphasis on long-term scalability, ease of maintenance, and system recoverability. Additionally, I work closely with the support team to triage issues, gain insight into customer needs, and help identify solutions to the challenges they face, ensuring Center’s platform remains robust, adaptable, and customer-centric.
         </Text>
-        <Text className="text-white text-center" size="md">
-          I&apos;m working on something new and I look forward to sharing more soon!
-        </Text>
+
         <div className="h-20 relative flex justify-center">
           <ArrowDown
             onClick={onWorkArrowClick}
