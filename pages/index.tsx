@@ -52,11 +52,14 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <div className="absolute" style={{ top, left }}>
+      <div
+        style={{ top, left }}
+        className={`absolute ${shouldShow ? "opacity-100 transition-opacity duration-[3s]" : "opacity-0 invisible"}`}
+      >
         <Image
           src="https://media.giphy.com/media/JhUZYdpnqrgcM/giphy.gif"
           alt="gif of a cat drinking water in a humourous way"
-          className={`justify-self-center ${shouldShow ? "opacity-100 transition-opacity duration-[3s] " : "opacity-0"}`}
+          className="justify-self-center"
           height={229}
           width={331}
         />
