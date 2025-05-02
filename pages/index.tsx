@@ -140,6 +140,13 @@ const Home: NextPage = () => {
           height={200}
           width={200}
         />
+        <Image
+          src="https://media.giphy.com/media/JhUZYdpnqrgcM/giphy.gif"
+          alt="gif of a cat drinking water in a humourous way"
+          className="justify-self-center opacity-0 hover:opacity-100 transition-opacity hover:delay-[5s] hover:duration-[3s]"
+          height={138}
+          width={200}
+        />
       </div>
     </>
   );

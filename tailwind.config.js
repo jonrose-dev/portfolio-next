@@ -47,11 +47,11 @@ module.exports = {
           '0%': {
             opacity: 0,
             bottom: '40px'
-        },
-        '100%': {
+          },
+          '100%': {
             opacity: 1,
             bottom: '10px'
-        }
+          }
         }
       }
     },
