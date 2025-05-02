@@ -47,9 +47,12 @@ const Home: NextPage = () => {
   // show when the counter is at 0 and there is a mouse position
   const shouldShow = !counter && !!mousePosition.y && !!mousePosition.x;
 
+  const top = Math.max(0, scrollOffset + mousePosition.y - MOUSE_Y_OFFSET)
+  const left = Math.max(0, mousePosition.x - MOUSE_X_OFFSET)
+
   return (
     <>
-      <div className="absolute" style={{ top: scrollOffset + mousePosition.y - MOUSE_Y_OFFSET, left: mousePosition.x - MOUSE_X_OFFSET }}>
+      <div className="absolute" style={{ top, left }}>
         <Image
           src="https://media.giphy.com/media/JhUZYdpnqrgcM/giphy.gif"
           alt="gif of a cat drinking water in a humourous way"
