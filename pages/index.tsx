@@ -2,15 +2,21 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { Image, TerminalEmulator, Text } from '../components';
 import { ArrowDown, FileText } from 'react-feather';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const className = {
   imageLink: 'hover:opacity-100 opacity-50 transition-all duration-500',
 };
 
+const MOUSE_X_OFFSET = 115;
+const MOUSE_Y_OFFSET = 82;
+
 const Home: NextPage = () => {
   const meSectionRef = useRef<HTMLDivElement>(null);
   const connectSectionRef = useRef<HTMLDivElement>(null);
+  const [scrollOffset, setScrollOffset] = useState(0);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [counter, setCounter] = useState(5);
 
   const onIntroArrowClick = () => {
     meSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -20,8 +26,38 @@ const Home: NextPage = () => {
     connectSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  useEffect(() => {
+    document.addEventListener("scroll", () => {
+      setCounter(5);
+      setScrollOffset(document.scrollingElement?.scrollTop ?? 0);
+    })
+
+    document.addEventListener("mousemove", (e: MouseEvent) => {
+      setCounter(5);
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    })
+
+    const interval = setInterval(() => {
+      setCounter(time => time > 0 ? time - 1 : 0);
+    }, 1000)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  // show when the counter is at 0 and there is a mouse position
+  const shouldShow = !counter && !!mousePosition.y && !!mousePosition.x;
+
   return (
     <>
+      <div className="absolute" style={{ top: scrollOffset + mousePosition.y - MOUSE_Y_OFFSET, left: mousePosition.x - MOUSE_X_OFFSET }}>
+        <Image
+          src="https://media.giphy.com/media/JhUZYdpnqrgcM/giphy.gif"
+          alt="gif of a cat drinking water in a humourous way"
+          className={`justify-self-center ${shouldShow ? "opacity-100 transition-opacity duration-[3s] " : "opacity-0"}`}
+          height={229}
+          width={331}
+        />
+      </div>
       <Head>
         <title>Jon Rose</title>
       </Head>
@@ -138,13 +174,6 @@ const Home: NextPage = () => {
           alt="Me Waving Goodbye"
           className="justify-self-center"
           height={200}
-          width={200}
-        />
-        <Image
-          src="https://media.giphy.com/media/JhUZYdpnqrgcM/giphy.gif"
-          alt="gif of a cat drinking water in a humourous way"
-          className="justify-self-center opacity-0 hover:opacity-100 transition-opacity hover:delay-[5s] hover:duration-[3s]"
-          height={138}
           width={200}
         />
       </div>
