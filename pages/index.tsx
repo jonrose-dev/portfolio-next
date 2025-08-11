@@ -27,6 +27,12 @@ const Home: NextPage = () => {
   };
 
   useEffect(() => {
+
+    // Don't show on touchscreens and the location gets weird
+    if (('ontouchstart' in window) || navigator.maxTouchPoints > 0) {
+      return () => { }
+    }
+
     document.addEventListener("scroll", () => {
       setCounter(5);
       setScrollOffset(document.scrollingElement?.scrollTop ?? 0);
