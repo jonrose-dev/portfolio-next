@@ -67,7 +67,7 @@ const Home: NextPage = () => {
         aria-hidden="true"
       >
         <Image
-          src="https://media.giphy.com/media/JhUZYdpnqrgcM/giphy.gif"
+          src="/images/cat.gif"
           alt=""
           className="justify-self-center w-[221px] h-[153px]"
           height={153}
@@ -109,11 +109,11 @@ const Home: NextPage = () => {
         </section>
         <section className="h-fit bg-[rgb(248,248,250)] text-[#001c3d] grid grid-rows-[auto,1fr] w-full pb-12 px-6 gap-y-8  py-8" aria-labelledby="work-heading">
           <Image
-            src="https://getcenter.com/wp-content/uploads/2023/03/logo.png"
-            height={500}
-            width={500}
+            src="/images/center-logo.webp"
+            height={329}
+            width={1092}
             alt="Logo for Center"
-            className="justify-self-center text-center"
+            className="justify-self-center text-center w-full max-w-[728px] h-auto"
           />
           <Text as="h2" id="work-heading" size="xl" className="w-[70vw] text-center justify-self-center">
             Sr. Director of Engineering
