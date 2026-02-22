@@ -2,6 +2,11 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { Image, TerminalEmulator, Text } from '../components';
 import { useEffect, useRef, useState } from 'react';
+import dynamic from 'next/dynamic';
+
+const CatGif = dynamic(() => import('../components/cat-gif/CatGif'), {
+  ssr: false,
+});
 
 const ArrowDownIcon = () => (
   <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -24,15 +29,9 @@ const className = {
   imageLink: 'hover:opacity-100 opacity-50 transition-all duration-500',
 };
 
-const MOUSE_X_OFFSET = 77;
-const MOUSE_Y_OFFSET = 55;
-
 const Home: NextPage = () => {
   const meSectionRef = useRef<HTMLDivElement>(null);
   const connectSectionRef = useRef<HTMLDivElement>(null);
-  const [scrollOffset, setScrollOffset] = useState(0);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [counter, setCounter] = useState(5);
 
   const onIntroArrowClick = () => {
     meSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -42,54 +41,12 @@ const Home: NextPage = () => {
     connectSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  useEffect(() => {
-
-    // Don't show on touchscreens and the location gets weird
-    if (('ontouchstart' in window) || navigator.maxTouchPoints > 0) {
-      return () => { }
-    }
-
-    document.addEventListener("scroll", () => {
-      setCounter(5);
-      setScrollOffset(document.scrollingElement?.scrollTop ?? 0);
-    })
-
-    document.addEventListener("mousemove", (e: MouseEvent) => {
-      setCounter(5);
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    })
-
-    const interval = setInterval(() => {
-      setCounter(time => time > 0 ? time - 1 : 0);
-    }, 1000)
-
-    return () => clearInterval(interval)
-  }, [])
-
-  // show when the counter is at 0 and there is a mouse position
-  const shouldShow = !counter && !!mousePosition.y && !!mousePosition.x;
-
-  const top = Math.max(0, scrollOffset + mousePosition.y - MOUSE_Y_OFFSET)
-  const left = Math.max(0, mousePosition.x - MOUSE_X_OFFSET)
-
   return (
     <>
       <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:bg-white focus:text-black focus:p-4">
         Skip to main content
       </a>
-      <div
-        style={{ top, left }}
-        className={`absolute ${shouldShow ? "opacity-100 transition-opacity duration-[3s]" : "opacity-0 invisible"}`}
-        aria-hidden="true"
-      >
-        <Image
-          src="/images/cat.gif"
-          alt=""
-          className="justify-self-center w-[221px] h-[153px]"
-          height={153}
-          width={221}
-        />
-      </div>
+      <CatGif />
       <Head>
         <title>Jon Rose</title>
       </Head>
