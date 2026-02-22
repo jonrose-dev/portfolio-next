@@ -5,6 +5,7 @@ type TextProps = {
   className?: string;
   size?: 'sm' | 'md' | 'lg' | 'xl';
   as?: 'p' | 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  id?: string;
 };
 
 const isHeading = (as: TextProps['as'] = 'p') => ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(as);
@@ -26,9 +27,10 @@ export const Text = ({
   as = 'p',
   size = 'sm',
   className: _className = '',
+  id,
 }: TextProps) => {
   const Tag = as;
   const fontSize = className.sizeMap[size];
   const bold = isHeading(as) ? className.weight.bold : '';
-  return <Tag className={`font-body ${fontSize} ${bold} ${_className}`}>{children}</Tag>;
+  return <Tag id={id} className={`font-body ${fontSize} ${bold} ${_className}`}>{children}</Tag>;
 };
