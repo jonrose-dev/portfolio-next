@@ -8,8 +8,8 @@ const className = {
   imageLink: 'hover:opacity-100 opacity-50 transition-all duration-500',
 };
 
-const MOUSE_X_OFFSET = 115;
-const MOUSE_Y_OFFSET = 82;
+const MOUSE_X_OFFSET = 77;
+const MOUSE_Y_OFFSET = 55;
 
 const Home: NextPage = () => {
   const meSectionRef = useRef<HTMLDivElement>(null);
@@ -69,9 +69,9 @@ const Home: NextPage = () => {
         <Image
           src="https://media.giphy.com/media/JhUZYdpnqrgcM/giphy.gif"
           alt=""
-          className="justify-self-center w-[331px] h-[229px]"
-          height={229}
-          width={331}
+          className="justify-self-center w-[221px] h-[153px]"
+          height={153}
+          width={221}
         />
       </div>
       <Head>
@@ -96,10 +96,10 @@ const Home: NextPage = () => {
         <section className="h-fit bg-black grid grid-rows-[auto,1fr] w-full pb-12" ref={meSectionRef} aria-labelledby="about-heading">
           <Image
             src="/images/me.webp"
-            height={398}
-            width={398}
+            height={265}
+            width={265}
             alt="cartoon version of me at a computer"
-            className="justify-self-center text-center w-[398px] h-[398px]"
+            className="justify-self-center text-center w-[265px] h-[265px]"
           />
           <Text as="h2" id="about-heading" size="lg" className="text-white w-[70vw] text-center justify-self-center">
             My name is Jon Rose and I am passionate about writing performant and elegant code. Whether
